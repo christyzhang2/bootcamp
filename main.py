@@ -16,6 +16,14 @@ fig = px.bar(
         color="section",
         title="Student Grades by Section"
     )
+for _, row in avg.iterrows():
+        fig.add_hline(
+            y=row["grade"],
+            line_dash="dash",
+            annotation_text=f"{row['section']} avg: {row['grade']:.1f}",
+            annotation_position="top left"
+        )
+
 fig.show()
 
 if __name__ == "__main__":
